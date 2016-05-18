@@ -1,0 +1,9 @@
+/*
+  Game Date component - Displays the current date in MMMM dd, yyyy format.
+
+  Since all Date styles are inherited from base styles and the type-setting element, this component primarily sets the spacing for the displayed date.
+*/
+
+[data-component="date"] {
+  margin-bottom: 10px;
+}

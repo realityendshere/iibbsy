@@ -1,0 +1,10 @@
+// Links
+
+a {
+  text-decoration: none;
+  transition: color 0.25s ease-out;
+  &:hover {
+    cursor: pointer;
+    transition: color 0.25s ease-out;
+  }
+}

@@ -1,0 +1,24 @@
+/*
+  Scoreboard component - Wrapper for Game Date, Score Display, and Game Probables components
+
+  This component sets the general structure and layout for the entire scoreboard route (/scoreboard). General layout behavior and logic is set here.
+*/
+
+[data-component="game"] {
+  @extend %flex-row;
+  padding: 7px 10px 10px;
+  min-height: 180px;
+  border: 1px solid #979797;
+  background-color: $true-white;
+
+  .image-container + [class*="metadata"] {
+    margin-left: 10px;
+  }
+
+  [data-component] + [data-component] {
+    margin-top: -7px;
+    margin-bottom: -10px;
+    padding: 7px 0 10px 10px;
+    border-left: 1px solid black;
+  }
+}

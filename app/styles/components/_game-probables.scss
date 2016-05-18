@@ -1,0 +1,22 @@
+/*
+  Game Probables component - Displays the probable starting pitchers, along with their wins, losses, and ERA, for the specific game.
+
+  The Game Probables component displays the Pitchers Name (.team-header) and Wins, Losses, and ERA (.metadata). While the type styles are inherited from the type-setting element, the general layout of the component is set here.
+*/
+
+[data-component="probables"] {
+  @extend %flex-column;
+  flex: 1;
+
+  .teams {
+    @extend %flex-column;
+    flex: 1;
+    justify-content: space-around;
+  }
+
+  .team {
+    @extend %flex-row;
+    flex: 1;
+    align-items: center;
+  }
+}

@@ -1,0 +1,22 @@
+// Typography Reset
+// Text elements are normalized here. Heirarchy and styles are set in elements/type-scale.scss
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small,
+abbr,
+button {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+small {
+  display: block;
+}

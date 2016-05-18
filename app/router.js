@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('scoreboard', function() {
+    this.route('game', { path: '*wildcard' });
+  });
 });
 
 export default Router;

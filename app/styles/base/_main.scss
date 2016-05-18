@@ -1,0 +1,38 @@
+// Base
+
+// box-sizing best practice
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+  padding: 0 25px;
+  color: $true-black;
+  background-color: #f1f2f3;
+
+  // Ember.js adds a wrapper around the application template. This is not ideal.
+  // TODO: If possible, add a custom class to style against.
+  > .ember-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  max-width: 1024px;
+  width: 100%;
+}
