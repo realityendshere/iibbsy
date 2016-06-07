@@ -6,7 +6,9 @@
 <tbody class="teams">
   <tr class="team away-team">
     <div class="image-container">
-      <img src="#" width="50" height="50" class="team-logo" />
+      {{#unless away-team-logo}}
+        <img src="assets/images/no-photo.png" class="team-logo" />
+      {{/unless}}
     </div>
     <div class="team-metadata">
       <h3 class="team-header">Away Team</h3>
@@ -16,7 +18,9 @@
 
   <tr class="team home-team">
     <div class="image-container">
-      <img src="#" width="50" height="50" class="team-logo" />
+      {{#unless home-team-logo}}
+        <img src="assets/images/no-photo.png" class="team-logo" />
+      {{/unless}}
     </div>
     <div class="team-metadata">
       <h3 class="team-header">Home Team</h3>

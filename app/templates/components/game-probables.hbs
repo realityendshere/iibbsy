@@ -2,7 +2,9 @@
 <div class="teams">
   <div class="team away-team">
     <div class="image-container">
-      <img src="#" width="50" height="50" class="player-photo" />
+      {{#unless pitcher-photo}}
+        <img src="assets/images/no-photo.png" class="player-photo" />
+      {{/unless}}
     </div>
     <div class="player-metadata">
       <h3 class="team-header">Away Pitcher Name</h3>
@@ -12,7 +14,9 @@
 
   <div class="team home-team">
     <div class="image-container">
-      <img src="#" width="50" height="50" class="player-photo" />
+      {{#unless pitcher-photo}}
+        <img src="assets/images/no-photo.png" class="player-photo" />
+      {{/unless}}
     </div>
     <div class="player-metadata">
       <h3 class="team-header">Home Pitcher Name</h3>
