@@ -1,5 +1,5 @@
 <article class="scoreboard">
-  {{!-- #each model as |game| --}}
+  {{#each model as |game|}}
   <section class="game" data-component="game">
     {{score-display model=game}}
 
@@ -7,7 +7,7 @@
       {{game-probables model=game}}
     {{/if}}
   </section>
-  {{!-- /each --}}
+  {{/each}}
 </article>
 
 {{!-- <div class="demo">
