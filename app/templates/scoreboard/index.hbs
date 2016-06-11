@@ -1,9 +1,11 @@
 <article class="scoreboard">
   {{!-- #each model as |game| --}}
   <section class="game" data-component="game">
-    {{score-display}}
+    {{score-display model=game}}
 
-    {{game-probables}}
+    {{#if game.isPreGame}}
+      {{game-probables model=game}}
+    {{/if}}
   </section>
   {{!-- /each --}}
 </article>
