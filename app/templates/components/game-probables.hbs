@@ -7,8 +7,8 @@
       {{/unless}}
     </div>
     <div class="player-metadata">
-      <h3 class="team-header">Away Pitcher Name</h3>
-      <p class="metadata">(Wins - Losses, ERA)</p>
+      <h3 class="team-header">{{format-name firstName=model.awayProbablePitcher.first lastName=model.awayProbablePitcher.last}}</h3>
+      <p class="metadata">({{model.awayProbablePitcher.wins}}-{{model.awayProbablePitcher.losses}}, {{model.awayProbablePitcher.era}})</p>
     </div>
   </div>
 
@@ -19,8 +19,8 @@
       {{/unless}}
     </div>
     <div class="player-metadata">
-      <h3 class="team-header">Home Pitcher Name</h3>
-      <p class="metadata">(Wins - Losses, ERA)</p>
+      <h3 class="team-header">{{format-name firstName=model.homeProbablePitcher.first lastName=model.homeProbablePitcher.last}}</h3>
+      <p class="metadata">({{model.homeProbablePitcher.wins}}-{{model.homeProbablePitcher.losses}}, {{model.homeProbablePitcher.era}})</p>
     </div>
   </div>
 </div>
