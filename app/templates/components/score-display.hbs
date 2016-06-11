@@ -1,6 +1,6 @@
 <thead>
   <th class="game-status">
-    <h4 class="component-header">7:15 PM PT <i>at AT&amp;T Park in San Francisco, CA</i></h4>
+    <h4 class="component-header">{{model.time}} {{model.ampm}} {{model.timeZone}} <i>at {{model.venue}} in {{model.location}}</i></h4>
   </th>
 </thead>
 <tbody class="teams">
@@ -11,8 +11,8 @@
       {{/unless}}
     </div>
     <div class="team-metadata">
-      <h3 class="team-header">Away Team</h3>
-      <p class="metadata">(Wins - Losses)</p>
+      <h3 class="team-header">{{model.awayTeamName}}</h3>
+      <p class="metadata">({{model.awayTeamWins}}-{{model.awayTeamLosses}})</p>
     </div>
   </tr>
 
@@ -23,8 +23,8 @@
       {{/unless}}
     </div>
     <div class="team-metadata">
-      <h3 class="team-header">Home Team</h3>
-      <p class="metadata">(Wins - Losses)</p>
+      <h3 class="team-header">{{model.homeTeamName}}</h3>
+      <p class="metadata">({{model.homeTeamWins}}-{{model.homeTeamLosses}})</p>
     </div>
   </tr>
 
