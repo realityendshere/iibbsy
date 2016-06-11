@@ -6,7 +6,10 @@
 <tbody class="teams">
   <tr class="team away-team">
     <div class="image-container">
-      {{#unless away-team-logo}}
+      {{#if model.awayTeamLogo}}
+        <img src={{model.awayTeamLogo}} class="team-logo" />
+      {{/if}}
+      {{#unless model.awayTeamLogo}}
         <img src="assets/images/no-photo.png" class="team-logo" />
       {{/unless}}
     </div>
@@ -18,7 +21,10 @@
 
   <tr class="team home-team">
     <div class="image-container">
-      {{#unless home-team-logo}}
+      {{#if model.homeTeamLogo}}
+        <img src={{model.homeTeamLogo}} class="team-logo" />
+      {{/if}}
+      {{#unless model.homeTeamLogo}}
         <img src="assets/images/no-photo.png" class="team-logo" />
       {{/unless}}
     </div>

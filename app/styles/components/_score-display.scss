@@ -25,6 +25,10 @@
   }
 
   .image-container {
-    @include croppedImage;
+    width: 45px;
+    height: 45px;
+    img {
+      width: 100%;
+    }
   }
 }
