@@ -2,8 +2,8 @@
 <div class="teams">
   <div class="team away-team">
     <div class="image-container">
-      {{#unless pitcher-photo}}
-        <img src="assets/images/no-photo.png" class="player-photo" />
+      {{#unless model.awayProbablePitcherPhoto}}
+        <img src="assets/images/no-photo.png" class="no-photo" />
       {{/unless}}
     </div>
     <div class="player-metadata">
@@ -14,8 +14,8 @@
 
   <div class="team home-team">
     <div class="image-container">
-      {{#unless pitcher-photo}}
-        <img src="assets/images/no-photo.png" class="player-photo" />
+      {{#unless model.homeProbablePitcherPhoto}}
+        <img src="assets/images/no-photo.png" class="no-photo" />
       {{/unless}}
     </div>
     <div class="player-metadata">

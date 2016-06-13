@@ -27,7 +27,7 @@
   & {
     @extend %image-container;
 
-    > img {
+    > .no-photo {
       @extend %image-container-img
     }
   }
