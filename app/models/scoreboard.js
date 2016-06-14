@@ -12,6 +12,18 @@ export default Model.extend({
   isPreGame: Ember.computed('gameStatus', function() {
     return this.get('gameStatus.status') === 'Pre-Game';
   }),
+  isPreview: Ember.computed('gameStatus', function() {
+    return this.get('gameStatus.status') === 'Preview';
+  }),
+  isWarmup: Ember.computed('gameStatus', function() {
+    return this.get('gameStatus.status') === 'Warmup';
+  }),
+  isInProgress: Ember.computed('gameStatus', function() {
+    return this.get('gameStatus.status') === 'In Progress';
+  }),
+  isFinal: Ember.computed('gameStatus', function() {
+    return this.get('gameStatus.status') === 'Final';
+  }),
   awayTeamName: DS.attr('string'),
   awayTeamAbbrev: DS.attr('string'),
   awayTeamLogo: Ember.computed('awayTeamAbbrev', function() {
