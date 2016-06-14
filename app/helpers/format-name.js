@@ -3,7 +3,9 @@ import Ember from 'ember';
 export function formatName(params, { firstName, lastName }) {
   let firstInitial;
 
-  if (firstName.length <= 2) {
+  if (firstName.length === 0) {
+    return 'TBD';
+  } else if (firstName.length <= 2) {
     firstInitial = firstName;
 
     return `${firstInitial} ${lastName}`;
