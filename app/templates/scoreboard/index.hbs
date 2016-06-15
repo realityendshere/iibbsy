@@ -5,6 +5,8 @@
 
     {{#if (or game.isPreGame game.isPreview)}}
       {{game-probables model=game}}
+    {{else if game.isFinal}}
+      {{game-wrapup model=game}}
     {{/if}}
   </section>
   {{/each}}
