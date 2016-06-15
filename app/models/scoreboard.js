@@ -25,6 +25,14 @@ export default Model.extend({
   isFinal: Ember.computed('gameStatus', function() {
     return this.get('gameStatus.status') === 'Final';
   }),
+  isExtraInnings: Ember.computed('gameStatus', function() {
+    let innings = parseFloat(this.get('gameStatus.innings'));
+
+    return innings > 9;
+  }),
+  finalInning: Ember.computed('gameStatus', function() {
+    return parseFloat(this.get('gameStatus.innings'));
+  }),
   currentInning: Ember.computed('gameStatus', function() {
     let currentInning = ordinalSuffix(this.get('gameStatus.inning')),
       inningState = this.get('gameStatus.inning_state');
@@ -50,5 +58,24 @@ export default Model.extend({
   }),
   homeTeamWins: DS.attr('number'),
   homeTeamLosses: DS.attr('number'),
-  homeProbablePitcher: DS.attr()
+  homeProbablePitcher: DS.attr(),
+  linescore: DS.attr(),
+  awayTeamRuns: Ember.computed('linescore', function() {
+    return this.get('linescore.r.away');
+  }),
+  awayTeamHits: Ember.computed('linescore', function() {
+    return this.get('linescore.h.away');
+  }),
+  awayTeamErrors: Ember.computed('linescore', function() {
+    return this.get('linescore.e.away');
+  }),
+  homeTeamRuns: Ember.computed('linescore', function() {
+    return this.get('linescore.r.home');
+  }),
+  homeTeamHits: Ember.computed('linescore', function() {
+    return this.get('linescore.h.home');
+  }),
+  homeTeamErrors: Ember.computed('linescore', function() {
+    return this.get('linescore.e.home');
+  })
 });
