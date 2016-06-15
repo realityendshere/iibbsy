@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 import Model from 'ember-data/model';
+import { ordinalSuffix } from '../helpers/ordinal-suffix';
 
 export default Model.extend({
   time: DS.attr('string'),
@@ -23,6 +24,12 @@ export default Model.extend({
   }),
   isFinal: Ember.computed('gameStatus', function() {
     return this.get('gameStatus.status') === 'Final';
+  }),
+  currentInning: Ember.computed('gameStatus', function() {
+    let currentInning = ordinalSuffix(this.get('gameStatus.inning')),
+      inningState = this.get('gameStatus.inning_state');
+
+      return `${inningState} ${currentInning}`;
   }),
   awayTeamName: DS.attr('string'),
   awayTeamAbbrev: DS.attr('string'),
