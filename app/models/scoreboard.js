@@ -23,7 +23,7 @@ export default Model.extend({
     return this.get('gameStatus.status') === 'In Progress';
   }),
   isFinal: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'Final';
+    return this.get('gameStatus.status') === 'Final' || this.get('gameStatus.status') === 'Game Over';
   }),
   isExtraInnings: Ember.computed('gameStatus', function() {
     let innings = parseFloat(this.get('gameStatus.innings'));
