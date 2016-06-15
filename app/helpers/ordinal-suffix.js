@@ -3,7 +3,7 @@ import Ember from 'ember';
 export function ordinalSuffix(number) {
   var numArray = ('' + number).split('').reverse();
 
-  if (numArray[1] != '1') {
+  if (numArray[1] !== '1') {
     switch(numArray[0]) {
       case '1':
         return `${number}st`;
