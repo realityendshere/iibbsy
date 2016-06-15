@@ -3,7 +3,7 @@
   <section class="game" data-component="game">
     {{score-display model=game}}
 
-    {{#if (or game.isPreGame game.isPreview)}}
+    {{#if (or game.isPreGame game.isPreview game.isWarmup)}}
       {{game-probables model=game}}
     {{else if game.isFinal}}
       {{game-wrapup model=game}}
