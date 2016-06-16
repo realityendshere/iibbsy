@@ -19,13 +19,35 @@ export default DS.RESTSerializer.extend({
   },
 
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
-    let data = payload.data.games.game;
+    let games = payload.data.games.game,
+      reorderedGamesList = [],
+      inProgress = 0;
 
     payload = {
-      scoreboard: data
+      scoreboard: games
     };
 
+    if (games.length === 0) {
+      return this._super(store, primaryModelClass, payload, id, requestType);
+    }
+
+    games.forEach(function(game) {
+      if ((game.status.status === 'Final') || (game.status.status === 'Game Over')) {
+        reorderedGamesList.push(game);
+      } else {
+        reorderedGamesList.splice(inProgress, 0, game);
+        inProgress = inProgress + 1;
+      }
+    });
+
+    if (reorderedGamesList.length === 0) {
+      return this._super(store, primaryModelClass, payload, id, requestType);
+    } else {
+      payload.scoreboard = reorderedGamesList;
+    }
+
     console.log(payload);
+
     return this._super(store, primaryModelClass, payload, id, requestType);
   }
 });
