@@ -87,5 +87,32 @@ export default Model.extend({
   }),
   homeTeamErrors: Ember.computed('linescore', function() {
     return this.get('linescore.e.home');
+  }),
+  winningPitcher: DS.attr(),
+  winningPitcherWins: Ember.computed('winningPitcher', function() {
+    return this.get('winningPitcher.wins');
+  }),
+  winningPitcherLosses: Ember.computed('winningPitcher', function() {
+    return this.get('winningPitcher.losses');
+  }),
+  winningPitcherERA: Ember.computed('winningPitcher', function() {
+    return this.get('winningPitcher.era');
+  }),
+  losingPitcher: DS.attr(),
+  losingPitcherWins: Ember.computed('losingPitcher', function() {
+    return this.get('losingPitcher.wins');
+  }),
+  losingPitcherLosses: Ember.computed('losingPitcher', function() {
+    return this.get('losingPitcher.losses');
+  }),
+  losingPitcherERA: Ember.computed('losingPitcher', function() {
+    return this.get('losingPitcher.era');
+  }),
+  savePitcher: DS.attr(),
+  hasSavePitcher: Ember.computed('savePitcher', function() {
+    return this.get('savePitcher.id') !== '';
+  }),
+  savePitcherSaves: Ember.computed('savePitcher', function() {
+    return this.get('savePitcher.saves');
   })
 });

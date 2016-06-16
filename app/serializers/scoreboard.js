@@ -15,7 +15,10 @@ export default DS.RESTSerializer.extend({
     homeTeamAbbrev: 'home_name_abbrev',
     homeTeamWins: 'home_win',
     homeTeamLosses: 'home_loss',
-    homeProbablePitcher: 'home_probable_pitcher'
+    homeProbablePitcher: 'home_probable_pitcher',
+    winningPitcher: 'winning_pitcher',
+    losingPitcher: 'losing_pitcher',
+    savePitcher: 'save_pitcher'
   },
 
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
