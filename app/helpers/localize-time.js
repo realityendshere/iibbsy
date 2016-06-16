@@ -14,6 +14,8 @@ function convertTimeZone(zone) {
       return timeZones[zone];
     }
   }
+
+  return zone;
 }
 
 export function localizeTime(gameDate, gameTime, ampm, gameTimeZone) {
