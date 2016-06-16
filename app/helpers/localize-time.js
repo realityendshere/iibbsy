@@ -10,7 +10,7 @@ const timeZones = {
 
 function convertTimeZone(zone) {
   if (zone.length === 2) {
-    for (const tz in timeZones) {
+    if (timeZones[zone] !== 'undefined') {
       return timeZones[zone];
     }
   }
