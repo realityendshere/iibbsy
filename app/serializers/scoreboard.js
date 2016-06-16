@@ -4,6 +4,7 @@ export default DS.RESTSerializer.extend({
   attrs: {
     time: 'home_time',
     timeZone: 'home_time_zone',
+    gameDate: 'original_date',
     gameStatus: 'status',
     awayTeamName: 'away_team_name',
     awayTeamAbbrev: 'away_name_abbrev',

@@ -2,11 +2,21 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import Model from 'ember-data/model';
 import { ordinalSuffix } from '../helpers/ordinal-suffix';
+import { localizeTime } from '../helpers/localize-time';
 
 export default Model.extend({
   time: DS.attr('string'),
   ampm: DS.attr('string'),
   timeZone: DS.attr('string'),
+  gameDate: DS.attr('string'),
+  gameTime: Ember.computed('gameDate', 'time', 'ampm', 'timeZone', function() {
+    let date = this.get('gameDate'),
+      time = this.get('time'),
+      ampm = this.get('ampm'),
+      gameTimeZone = this.get('timeZone');
+
+    return localizeTime(date, time, ampm, gameTimeZone);
+  }),
   venue: DS.attr('string'),
   location: DS.attr('string'),
   gameStatus: DS.attr(),

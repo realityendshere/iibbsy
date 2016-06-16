@@ -2,7 +2,7 @@
   <tr class="linescore-container">
     <th class="game-status">
       {{#if (or model.isPreGame model.isPreview)}}
-        <h4 class="component-header">{{model.time}} {{model.ampm}} {{model.timeZone}} <i>at {{model.venue}} in {{model.location}}</i></h4>
+        <h4 class="component-header">{{model.gameTime}} <i>at {{model.venue}} in {{model.location}}</i></h4>
       {{else if model.isWarmup}}
         <h4 class="component-header">Warmup</h4>
       {{else if model.isInProgress}}
