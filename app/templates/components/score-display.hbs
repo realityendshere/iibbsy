@@ -7,7 +7,7 @@
         <h4 class="component-header">Warmup</h4>
       {{else if model.isInProgress}}
         <h4 class="component-header">{{model.currentInning}}</h4>
-      {{else if model.isFinal}}
+      {{else if model.isGameCompleted}}
         <h4 class="component-header">
           {{#if model.isExtraInnings}}
             Final/{{model.finalInning}}
@@ -18,7 +18,7 @@
         </h4>
       {{/if}}
     </th>
-    {{#if (or model.isWarmup model.isInProgress model.isFinal)}}
+    {{#if (or model.isWarmup model.isInProgress model.isGameCompleted)}}
       <th class="category">R</th>
       <th class="category">H</th>
       <th class="category">E</th>
@@ -41,7 +41,7 @@
         <p class="metadata">({{model.awayTeamWins}}-{{model.awayTeamLosses}})</p>
       </div>
     </td>
-    {{#if (or model.isWarmup model.isInProgress model.isFinal)}}
+    {{#if (or model.isWarmup model.isInProgress model.isGameCompleted)}}
       <td class="total runs">{{model.awayTeamRuns}}</td>
       <td class="total hits">{{model.awayTeamHits}}</td>
       <td class="total errors">{{model.awayTeamErrors}}</td>
@@ -62,7 +62,7 @@
         <p class="metadata">({{model.homeTeamWins}}-{{model.homeTeamLosses}})</p>
       </div>
     </td>
-    {{#if (or model.isWarmup model.isInProgress model.isFinal)}}
+    {{#if (or model.isWarmup model.isInProgress model.isGameCompleted)}}
       <td class="total runs">{{model.homeTeamRuns}}</td>
       <td class="total hits">{{model.homeTeamHits}}</td>
       <td class="total errors">{{model.homeTeamErrors}}</td>

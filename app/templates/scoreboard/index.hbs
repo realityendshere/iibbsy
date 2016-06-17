@@ -7,7 +7,7 @@
       {{game-probables model=game}}
     {{else if game.isInProgress}}
       {{play-by-play model=game}}
-    {{else if game.isFinal}}
+    {{else if game.isGameCompleted}}
       {{game-wrapup model=game}}
     {{/if}}
   </section>

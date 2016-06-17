@@ -20,26 +20,14 @@ export default Model.extend({
   venue: DS.attr('string'),
   location: DS.attr('string'),
   gameStatus: DS.attr(),
-  isPreGame: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'Pre-Game';
-  }),
-  isPreview: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'Preview';
-  }),
-  isWarmup: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'Warmup';
-  }),
-  isInProgress: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'In Progress';
-  }),
-  isFinal: Ember.computed('gameStatus', function() {
-    return this.get('gameStatus.status') === 'Final' || this.get('gameStatus.status') === 'Game Over';
-  }),
-  isExtraInnings: Ember.computed('gameStatus', function() {
-    let innings = parseFloat(this.get('gameStatus.innings'));
-
-    return innings > 9;
-  }),
+  isPreGame: Ember.computed.equal('gameStatus.status', 'Pre-Game'),
+  isPreview: Ember.computed.equal('gameStatus.status', 'Preview'),
+  isWarmup: Ember.computed.equal('gameStatus.status', 'Warmup'),
+  isInProgress: Ember.computed.equal('gameStatus.status', 'In Progress'),
+  isFinal: Ember.computed.equal('gameStatus.status', 'Final'),
+  isGameOver: Ember.computed.equal('gameStatus.status', 'Game Over'),
+  isGameCompleted: Ember.computed.or('isFinal', 'isGameOver'),
+  isExtraInnings: Ember.computed.gt('finalInning', 9),
   finalInning: Ember.computed('gameStatus', function() {
     return parseFloat(this.get('gameStatus.innings'));
   }),
@@ -131,9 +119,7 @@ export default Model.extend({
     return this.get('losingPitcher.era');
   }),
   savePitcher: DS.attr(),
-  hasSavePitcher: Ember.computed('savePitcher', function() {
-    return this.get('savePitcher.id') !== '';
-  }),
+  hasSavePitcher: Ember.computed.notEmpty('savePitcher.id'),
   savePitcherSaves: Ember.computed('savePitcher', function() {
     return this.get('savePitcher.saves');
   })
