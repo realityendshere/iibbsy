@@ -5,7 +5,11 @@
       <img src="assets/images/no-photo.png" class="no-photo" />
     </div>
     <div class="player-metadata">
-      <h3 class="team-header">{{format-name firstName=model.awayProbablePitcher.first lastName=model.awayProbablePitcher.last}}</h3>
+      <h3 class="team-header">
+        <a href={{model.awayProbablePitcherURL}}>
+          {{format-name firstName=model.awayProbablePitcher.first lastName=model.awayProbablePitcher.last}}
+        </a>
+      </h3>
       <p class="metadata">({{model.awayProbablePitcher.wins}}-{{model.awayProbablePitcher.losses}}, {{model.awayProbablePitcher.era}} ERA)</p>
     </div>
   </div>
@@ -15,7 +19,11 @@
       <img src="assets/images/no-photo.png" class="no-photo" />
     </div>
     <div class="player-metadata">
-      <h3 class="team-header">{{format-name firstName=model.homeProbablePitcher.first lastName=model.homeProbablePitcher.last}}</h3>
+      <h3 class="team-header">
+        <a href={{model.homeProbablePitcherURL}}>
+          {{format-name firstName=model.homeProbablePitcher.first lastName=model.homeProbablePitcher.last}}
+        </a>
+      </h3>
       <p class="metadata">({{model.homeProbablePitcher.wins}}-{{model.homeProbablePitcher.losses}}, {{model.homeProbablePitcher.era}} ERA)</p>
     </div>
   </div>

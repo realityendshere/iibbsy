@@ -59,6 +59,17 @@ export default Model.extend({
   awayTeamWins: DS.attr('number'),
   awayTeamLosses: DS.attr('number'),
   awayProbablePitcher: DS.attr(),
+  awayProbablePitcherURL: Ember.computed('awayProbablePitcher', 'awayTeamName', function() {
+    let pitcherId = this.get('awayProbablePitcher.id'),
+      pitcherFirstName = this.get('awayProbablePitcher.first').toLowerCase(),
+      pitcherLastName = this.get('awayProbablePitcher.last').toLowerCase(),
+      teamName = this.get('awayTeamName').toLowerCase();
+
+    teamName = teamName.replace('-', '');
+    teamName = teamName.replace(' ', '');
+
+    return `http://m.${teamName}.mlb.com/player/${pitcherId}/${pitcherFirstName}-${pitcherLastName}`;
+  }),
   homeTeamName: DS.attr('string'),
   homeTeamAbbrev: DS.attr('string'),
   homeTeamLogo: Ember.computed('homeTeamAbbrev', function() {
@@ -69,6 +80,17 @@ export default Model.extend({
   homeTeamWins: DS.attr('number'),
   homeTeamLosses: DS.attr('number'),
   homeProbablePitcher: DS.attr(),
+  homeProbablePitcherURL: Ember.computed('homeProbablePitcher', 'homeTeamName', function() {
+    let pitcherId = this.get('homeProbablePitcher.id'),
+      pitcherFirstName = this.get('homeProbablePitcher.first').toLowerCase(),
+      pitcherLastName = this.get('homeProbablePitcher.last').toLowerCase(),
+      teamName = this.get('homeTeamName').toLowerCase();
+
+    teamName = teamName.replace('-', '');
+    teamName = teamName.replace(' ', '');
+
+    return `http://m.${teamName}.mlb.com/player/${pitcherId}/${pitcherFirstName}-${pitcherLastName}`;
+  }),
   linescore: DS.attr(),
   awayTeamRuns: Ember.computed('linescore', function() {
     return this.get('linescore.r.away');
